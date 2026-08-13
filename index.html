@@ -307,7 +307,7 @@
         }
 
         .intro-box {
-            max-width: 500px;
+            max-width: 650px;
             width: 100%;
         }
 
@@ -322,20 +322,32 @@
             animation: introFadeIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards 0.3s;
         }
 
-        .intro-subtitle {
-            font-family: var(--font-sans);
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 40px;
+        .intro-confession {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--accent-peach);
+            line-height: 1.7;
+            margin-bottom: 24px;
             opacity: 0;
             transform: translateY(20px);
             animation: introFadeIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards 0.8s;
         }
 
-        .intro-btn-wrapper {
+        .intro-subtitle {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
             opacity: 0;
             transform: translateY(20px);
             animation: introFadeIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards 1.3s;
+        }
+
+        .intro-btn-wrapper {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: introFadeIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards 1.8s;
         }
 
         @keyframes introFadeIn {
@@ -1454,6 +1466,7 @@
     <div id="intro-screen">
         <div class="intro-box">
             <h1 class="intro-title">Hey...<br>I made something for you.</h1>
+            <p class="intro-confession">"You always ask why I love you, but genuinely, I don't know the answer yet. But today, I poured every last bit of my feelings and memories into this... so I hope now you get your answer."</p>
             <p class="intro-subtitle">Before you continue, promise me you'll go till the end. ❤️</p>
             <div class="intro-btn-wrapper">
                 <button class="glow-btn" id="start-experience-btn">Open it ✨</button>
