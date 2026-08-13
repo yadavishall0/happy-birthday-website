@@ -1235,6 +1235,102 @@
         }
 
         /* ==========================================
+           9.5. SCREEN 7.5: MY LAST LETTER STYLES
+           ========================================== */
+        #last-letter {
+            flex-direction: column;
+            padding: 80px 20px;
+        }
+
+        .last-letter-container {
+            max-width: 680px;
+            width: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+            border: 1px solid rgba(255, 126, 185, 0.15);
+            border-radius: 24px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow-primary), 0 0 40px rgba(255, 126, 185, 0.05);
+            position: relative;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        @media (max-width: 480px) {
+            .last-letter-container {
+                padding: 30px 20px;
+            }
+        }
+
+        .last-letter-title {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            color: var(--accent-pink);
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .last-letter-divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-pink), transparent);
+            margin: 0 auto 30px auto;
+        }
+
+        .last-letter-body {
+            font-family: var(--font-sans);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+
+        .letter-para {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .bold-salutation {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .important-note {
+            color: var(--text-main);
+            border-left: 3px solid var(--accent-pink);
+            padding-left: 16px;
+            font-style: italic;
+        }
+
+        .font-emphasis {
+            font-style: italic;
+            color: var(--text-main);
+        }
+
+        .bold-highlight {
+            font-weight: 600;
+            color: var(--accent-peach);
+            font-size: 1.1rem;
+        }
+
+        .signature-intro {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            color: var(--accent-purple);
+            line-height: 1.4;
+            margin-top: 30px;
+        }
+
+        .closing-salutation {
+            font-size: 1.15rem;
+            color: var(--text-main);
+            font-weight: 600;
+            margin-top: 30px;
+            margin-bottom: 0;
+            text-align: left;
+        }
+
+        /* ==========================================
            10. SCREEN 8: FINAL SCREEN
            ========================================== */
         #final-wishes {
@@ -1376,12 +1472,13 @@
         </div>
 
         <!-- FLOATING DOT NAVIGATION -->
-        <nav class="nav-dots" aria-label="Page Sections Navigation">
+         <nav class="nav-dots" aria-label="Page Sections Navigation">
             <button class="nav-dot active" data-target="timeline" data-label="Our Story"></button>
             <button class="nav-dot" data-target="birthday-reveal" data-label="Birthday Reveal"></button>
             <button class="nav-dot" data-target="appreciate" data-label="Appreciation"></button>
             <button class="nav-dot" data-target="personal-letter" data-label="Letter"></button>
             <button class="nav-dot" data-target="surprise-section" data-label="Surprise"></button>
+            <button class="nav-dot" data-target="last-letter" data-label="Last Letter"></button>
             <button class="nav-dot" data-target="final-wishes" data-label="Wishes"></button>
         </nav>
 
@@ -1896,6 +1993,39 @@
                 <button class="modal-close-btn" onclick="closeSurpriseModal()">Close & Continue</button>
             </div>
         </div>
+
+        <!-- ==========================================
+           SCREEN 7.5: MY LAST LETTER
+           ========================================== -->
+        <section id="last-letter">
+            <div class="last-letter-container glass-card reveal">
+                <span class="section-tag">A Final Confession</span>
+                <h2 class="last-letter-title">My Last Letter to You</h2>
+                <div class="last-letter-divider"></div>
+                <div class="last-letter-body">
+                    <p class="letter-para bold-salutation">Happy Birthday. ❤️</p>
+                    <p class="letter-para">Well… this is my last confession to you.</p>
+                    <p class="letter-para">I know I sometimes get angry when you joke or talk about other guys. It isn't because I hate anyone or want to control you. It is because I love you so deeply and admire you so much that even something as small as hearing about someone else hurts me.</p>
+                    <p class="letter-para">I know you have thousands of reasons not to commit to me, and I understand your situation. I know accepting my love isn't easy for you. But you should understand mine too.</p>
+                    <p class="letter-para">Among all those reasons and all those doubts, there is still one thing that challenges them all—my love for you.</p>
+                    <p class="letter-para">I don't know how to stop this obsession. I have tried to understand it, but I still don't know how to simply stop loving you.</p>
+                    <p class="letter-para">I never wanted to force you to be with me. I only wanted you to accept me if you truly loved me and were ready to make me your life partner.</p>
+                    <p class="letter-para">So from now, I will try to find a way to end this obsession and learn to live without constantly reaching for you.</p>
+                    <p class="letter-para">And because I understand your situation, I want you to understand mine too:</p>
+                    <p class="letter-para important-note">Please don't call or message me again—not even on my birthday—unless you truly love me and are ready for a commitment.</p>
+                    <p class="letter-para font-emphasis">Because I don't want you in my life halfway.</p>
+                    <p class="letter-para font-emphasis bold-highlight">I want you to be my whole life.</p>
+                    <p class="letter-para">I may still want your call. I may still wait for it. But I won't keep chasing you.</p>
+                    <p class="letter-para">I will step away and let time decide.</p>
+                    <p class="letter-para">And somewhere inside, I still hope that one day you will find the courage to come back and make me your life partner.</p>
+                    <p class="letter-para">Until then, I won't force anything.</p>
+                    <p class="letter-para">So let's see who wins in the end—</p>
+                    <p class="letter-para signature-intro">my love,<br>or your confusions.</p>
+                    <p class="letter-para">Whatever happens, I want you to know that what I felt for you was real.</p>
+                    <p class="letter-para closing-salutation">Happy Birthday. ❤️<br>Take care of yourself.</p>
+                </div>
+            </div>
+        </section>
 
         <!-- ==========================================
            SCREEN 8: FINAL BIRTHDAY SCREEN
