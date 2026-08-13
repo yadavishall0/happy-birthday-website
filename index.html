@@ -822,6 +822,25 @@
             }
         }
 
+        /* Polaroid Cards embedded inside Timeline milestones */
+        .timeline-content .polaroid-card {
+            margin: 16px auto;
+            max-width: 220px;
+            width: 100%;
+            transform: none !important;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .timeline-content .polaroid-card:hover {
+            transform: scale(1.03) !important;
+        }
+
+        .timeline-content .polaroid-caption {
+            font-size: 1.1rem;
+            margin-top: 8px;
+            color: #332047;
+        }
+
         /* ==========================================
            7. SCREEN 5: THINGS I APPRECIATE
            ========================================== */
@@ -1325,7 +1344,6 @@
         <nav class="nav-dots" aria-label="Page Sections Navigation">
             <button class="nav-dot active" data-target="timeline" data-label="Our Story"></button>
             <button class="nav-dot" data-target="birthday-reveal" data-label="Birthday Reveal"></button>
-            <button class="nav-dot" data-target="memories" data-label="Memories"></button>
             <button class="nav-dot" data-target="appreciate" data-label="Appreciation"></button>
             <button class="nav-dot" data-target="personal-letter" data-label="Letter"></button>
             <button class="nav-dot" data-target="surprise-section" data-label="Surprise"></button>
@@ -1339,12 +1357,12 @@
         </audio>
 
         <!-- ==========================================
-           SCREEN 4: OUR STORY / TIMELINE
+           SCREEN 4: OUR STORY / TIMELINE & MEMORIES (MERGED)
            ========================================== -->
         <section id="timeline">
             <div class="section-header reveal">
-                <span class="section-tag">Story</span>
-                <h2 class="section-title">Our little story...</h2>
+                <span class="section-tag">Story & Memories</span>
+                <h2 class="section-title">Our Story & Captured Moments</h2>
             </div>
             
             <div class="timeline-container">
@@ -1353,6 +1371,18 @@
                     <div class="timeline-content">
                         <span class="timeline-date">The Beginning</span>
                         <h3 class="timeline-item-title">Where we first crossed paths</h3>
+                        
+                        <div class="polaroid-card" onclick="openLightbox(this)" data-index="1">
+                            <div class="polaroid-img-wrapper">
+                                <img class="polaroid-img" src="images/photo1.jpg" alt="Our Favorite Memory" loading="lazy" onerror="handleImageError(this)">
+                                <div class="placeholder-image-card" style="display: none;">
+                                    <svg viewBox="0 0 24 24"><path d="M8.5,13.5L11,16.5L14.5,12L19,18H5L8.5,13.5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0 0 3,5V19A2,2 0 0 0 5,21H19A2,2 0 0 0 21,19M5,5H19V19H5V5Z"/></svg>
+                                    <span>Add images/photo1.jpg here</span>
+                                </div>
+                            </div>
+                            <span class="polaroid-caption">Our favorite memory ✨</span>
+                        </div>
+
                         <p class="timeline-desc">It started with a simple hello, but little did I know that day would change my path completely. Some meetings are written in the stars.</p>
                     </div>
                 </div>
@@ -1362,6 +1392,18 @@
                     <div class="timeline-content">
                         <span class="timeline-date">That One Memorable Day</span>
                         <h3 class="timeline-item-title">Laughter and inside jokes</h3>
+                        
+                        <div class="polaroid-card" onclick="openLightbox(this)" data-index="2">
+                            <div class="polaroid-img-wrapper">
+                                <img class="polaroid-img" src="images/photo2.jpg" alt="One of those special days" loading="lazy" onerror="handleImageError(this)">
+                                <div class="placeholder-image-card" style="display: none;">
+                                    <svg viewBox="0 0 24 24"><path d="M8.5,13.5L11,16.5L14.5,12L19,18H5L8.5,13.5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0 0 3,5V19A2,2 0 0 0 5,21H19A2,2 0 0 0 21,19M5,5H19V19H5V5Z"/></svg>
+                                    <span>Add images/photo2.jpg here</span>
+                                </div>
+                            </div>
+                            <span class="polaroid-caption">One of those special days 🌅</span>
+                        </div>
+
                         <p class="timeline-desc">The time we stayed up talking for hours about everything and nothing. It was the moment I realized how effortless it is to be around you.</p>
                     </div>
                 </div>
@@ -1369,17 +1411,83 @@
                 <!-- Milestone 3 -->
                 <div class="timeline-item left reveal">
                     <div class="timeline-content">
-                        <span class="timeline-date">A Moment I'll Never Forget</span>
-                        <h3 class="timeline-item-title">Supporting each other</h3>
-                        <p class="timeline-desc">When things got challenging, having your support meant the absolute world. Your strength and wisdom are things I constantly admire.</p>
+                        <span class="timeline-date">Simple Pleasures</span>
+                        <h3 class="timeline-item-title">Coffee & conversations</h3>
+                        
+                        <div class="polaroid-card" onclick="openLightbox(this)" data-index="3">
+                            <div class="polaroid-img-wrapper">
+                                <img class="polaroid-img" src="images/photo3.jpg" alt="A quiet moment that meant a lot" loading="lazy" onerror="handleImageError(this)">
+                                <div class="placeholder-image-card" style="display: none;">
+                                    <svg viewBox="0 0 24 24"><path d="M8.5,13.5L11,16.5L14.5,12L19,18H5L8.5,13.5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0 0 3,5V19A2,2 0 0 0 5,21H19A2,2 0 0 0 21,19M5,5H19V19H5V5Z"/></svg>
+                                    <span>Add images/photo3.jpg here</span>
+                                </div>
+                            </div>
+                            <span class="polaroid-caption">Just a moment... but it meant everything ☕</span>
+                        </div>
+
+                        <p class="timeline-desc">Just a quiet moment... but somehow it means a lot. The best conversations are the ones where we don't have to explain anything.</p>
                     </div>
                 </div>
 
                 <!-- Milestone 4 -->
                 <div class="timeline-item right reveal">
                     <div class="timeline-content">
+                        <span class="timeline-date">Joyful Times</span>
+                        <h3 class="timeline-item-title">The laughter we shared</h3>
+                        
+                        <div class="polaroid-card" onclick="openLightbox(this)" data-index="4">
+                            <div class="polaroid-img-wrapper">
+                                <img class="polaroid-img" src="images/photo4.jpg" alt="The laughter we shared" loading="lazy" onerror="handleImageError(this)">
+                                <div class="placeholder-image-card" style="display: none;">
+                                    <svg viewBox="0 0 24 24"><path d="M8.5,13.5L11,16.5L14.5,12L19,18H5L8.5,13.5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0 0 3,5V19A2,2 0 0 0 5,21H19A2,2 0 0 0 21,19M5,5H19V19H5V5Z"/></svg>
+                                    <span>Add images/photo4.jpg here</span>
+                                </div>
+                            </div>
+                            <span class="polaroid-caption">Your laugh makes everything better 笑</span>
+                        </div>
+
+                        <p class="timeline-desc">When we laugh until our stomachs hurt. Your laugh is my absolute favorite sound, and it makes any day immediately brighter.</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 5 -->
+                <div class="timeline-item left reveal">
+                    <div class="timeline-content">
+                        <span class="timeline-date">A Safe Haven</span>
+                        <h3 class="timeline-item-title">A moment I'll never forget</h3>
+                        
+                        <div class="polaroid-card" onclick="openLightbox(this)" data-index="5">
+                            <div class="polaroid-img-wrapper">
+                                <img class="polaroid-img" src="images/photo5.jpg" alt="A beautiful trip or hangout" loading="lazy" onerror="handleImageError(this)">
+                                <div class="placeholder-image-card" style="display: none;">
+                                    <svg viewBox="0 0 24 24"><path d="M8.5,13.5L11,16.5L14.5,12L19,18H5L8.5,13.5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0 0 3,5V19A2,2 0 0 0 5,21H19A2,2 0 0 0 21,19M5,5H19V19H5V5Z"/></svg>
+                                    <span>Add images/photo5.jpg here</span>
+                                </div>
+                            </div>
+                            <span class="polaroid-caption">The world gets quiet when you are around 🌌</span>
+                        </div>
+
+                        <p class="timeline-desc">The world gets quiet when you are around. When things got challenging, having your support meant the absolute world to me.</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 6 -->
+                <div class="timeline-item right reveal">
+                    <div class="timeline-content">
                         <span class="timeline-date">Where We Are Today</span>
                         <h3 class="timeline-item-title">Sincere appreciation</h3>
+                        
+                        <div class="polaroid-card" onclick="openLightbox(this)" data-index="6">
+                            <div class="polaroid-img-wrapper">
+                                <img class="polaroid-img" src="images/photo6.jpg" alt="A candid moment" loading="lazy" onerror="handleImageError(this)">
+                                <div class="placeholder-image-card" style="display: none;">
+                                    <svg viewBox="0 0 24 24"><path d="M8.5,13.5L11,16.5L14.5,12L19,18H5L8.5,13.5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0 0 3,5V19A2,2 0 0 0 5,21H19A2,2 0 0 0 21,19M5,5H19V19H5V5Z"/></svg>
+                                    <span>Add images/photo6.jpg here</span>
+                                </div>
+                            </div>
+                            <span class="polaroid-caption">Here's to many more stories to write 📖</span>
+                        </div>
+
                         <p class="timeline-desc">Years or months may pass, but you remain one of the brightest parts of my world. I am incredibly grateful to stand by your side today.</p>
                     </div>
                 </div>
@@ -1423,98 +1531,12 @@
 
                 <p class="birthday-description">Someone as special as you deserves more than just a simple birthday wish.</p>
                 
-                <a href="#memories" class="scroll-down-hint">
+                <a href="#appreciate" class="scroll-down-hint">
                     <span>Keep going</span>
                     <svg viewBox="0 0 24 24">
                         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
                     </svg>
                 </a>
-            </div>
-        </section>
-
-        <!-- ==========================================
-           SCREEN 3: MEMORY PHOTO GALLERY
-           ========================================== -->
-        <section id="memories">
-            <div class="section-header reveal">
-                <span class="section-tag">Memories</span>
-                <h2 class="section-title">Some moments are worth keeping forever</h2>
-            </div>
-            
-            <div class="gallery-grid reveal">
-                <!-- Polaroid Card 1 -->
-                <div class="polaroid-card" onclick="openLightbox(this)" data-index="1">
-                    <div class="polaroid-img-wrapper">
-                        <!-- Replace src path with your own image, e.g. images/photo1.jpg -->
-                        <img class="polaroid-img" src="images/photo1.jpg" alt="Our Favorite Memory" loading="lazy" onerror="handleImageError(this)">
-                        <!-- Fallback layout when local file is missing -->
-                        <div class="placeholder-image-card" style="display: none;">
-                            <svg viewBox="0 0 24 24"><path d="M8.5,13.5L11,16.5L14.5,12L19,18H5L8.5,13.5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0 0 3,5V19A2,2 0 0 0 5,21H19A2,2 0 0 0 21,19M5,5H19V19H5V5Z"/></svg>
-                            <span>Add images/photo1.jpg here</span>
-                        </div>
-                    </div>
-                    <span class="polaroid-caption">Our favorite memory ✨</span>
-                </div>
-
-                <!-- Polaroid Card 2 -->
-                <div class="polaroid-card" onclick="openLightbox(this)" data-index="2">
-                    <div class="polaroid-img-wrapper">
-                        <img class="polaroid-img" src="images/photo2.jpg" alt="One of those special days" loading="lazy" onerror="handleImageError(this)">
-                        <div class="placeholder-image-card" style="display: none;">
-                            <svg viewBox="0 0 24 24"><path d="M8.5,13.5L11,16.5L14.5,12L19,18H5L8.5,13.5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0 0 3,5V19A2,2 0 0 0 5,21H19A2,2 0 0 0 21,19M5,5H19V19H5V5Z"/></svg>
-                            <span>Add images/photo2.jpg here</span>
-                        </div>
-                    </div>
-                    <span class="polaroid-caption">One of those days I'll always remember 🌅</span>
-                </div>
-
-                <!-- Polaroid Card 3 -->
-                <div class="polaroid-card" onclick="openLightbox(this)" data-index="3">
-                    <div class="polaroid-img-wrapper">
-                        <img class="polaroid-img" src="images/photo3.jpg" alt="A quiet moment that meant a lot" loading="lazy" onerror="handleImageError(this)">
-                        <div class="placeholder-image-card" style="display: none;">
-                            <svg viewBox="0 0 24 24"><path d="M8.5,13.5L11,16.5L14.5,12L19,18H5L8.5,13.5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0 0 3,5V19A2,2 0 0 0 5,21H19A2,2 0 0 0 21,19M5,5H19V19H5V5Z"/></svg>
-                            <span>Add images/photo3.jpg here</span>
-                        </div>
-                    </div>
-                    <span class="polaroid-caption">Just a moment... but it meant everything ☕</span>
-                </div>
-
-                <!-- Polaroid Card 4 -->
-                <div class="polaroid-card" onclick="openLightbox(this)" data-index="4">
-                    <div class="polaroid-img-wrapper">
-                        <img class="polaroid-img" src="images/photo4.jpg" alt="The laughter we shared" loading="lazy" onerror="handleImageError(this)">
-                        <div class="placeholder-image-card" style="display: none;">
-                            <svg viewBox="0 0 24 24"><path d="M8.5,13.5L11,16.5L14.5,12L19,18H5L8.5,13.5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0 0 3,5V19A2,2 0 0 0 5,21H19A2,2 0 0 0 21,19M5,5H19V19H5V5Z"/></svg>
-                            <span>Add images/photo4.jpg here</span>
-                        </div>
-                    </div>
-                    <span class="polaroid-caption">Your laugh makes everything better 笑</span>
-                </div>
-
-                <!-- Polaroid Card 5 -->
-                <div class="polaroid-card" onclick="openLightbox(this)" data-index="5">
-                    <div class="polaroid-img-wrapper">
-                        <img class="polaroid-img" src="images/photo5.jpg" alt="A beautiful trip or hangout" loading="lazy" onerror="handleImageError(this)">
-                        <div class="placeholder-image-card" style="display: none;">
-                            <svg viewBox="0 0 24 24"><path d="M8.5,13.5L11,16.5L14.5,12L19,18H5L8.5,13.5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0 0 3,5V19A2,2 0 0 0 5,21H19A2,2 0 0 0 21,19M5,5H19V19H5V5Z"/></svg>
-                            <span>Add images/photo5.jpg here</span>
-                        </div>
-                    </div>
-                    <span class="polaroid-caption">The world gets quiet when you are around 🌌</span>
-                </div>
-
-                <!-- Polaroid Card 6 -->
-                <div class="polaroid-card" onclick="openLightbox(this)" data-index="6">
-                    <div class="polaroid-img-wrapper">
-                        <img class="polaroid-img" src="images/photo6.jpg" alt="A candid moment" loading="lazy" onerror="handleImageError(this)">
-                        <div class="placeholder-image-card" style="display: none;">
-                            <svg viewBox="0 0 24 24"><path d="M8.5,13.5L11,16.5L14.5,12L19,18H5L8.5,13.5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0 0 3,5V19A2,2 0 0 0 5,21H19A2,2 0 0 0 21,19M5,5H19V19H5V5Z"/></svg>
-                            <span>Add images/photo6.jpg here</span>
-                        </div>
-                    </div>
-                    <span class="polaroid-caption">Here's to many more stories to write 📖</span>
-                </div>
             </div>
         </section>
 
