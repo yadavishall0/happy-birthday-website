@@ -855,12 +855,10 @@
             max-width: 1000px;
             width: 100%;
             padding: 0 10px;
-        }
-
-        /* Flip Card Outer */
+        }        /* Flip Card Outer */
         .appreciate-card {
             background-color: transparent;
-            height: 200px;
+            height: 380px;
             perspective: 1000px;
             cursor: pointer;
         }
@@ -892,56 +890,93 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 24px;
+            justify-content: space-between;
+            padding: 16px;
             box-shadow: var(--shadow-primary);
         }
 
         /* Front Card visual */
         .appreciate-front {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            background: rgba(255, 255, 255, 0.03);
             color: var(--text-main);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
 
-        .appreciate-icon {
-            font-size: 2rem;
-            margin-bottom: 12px;
-            color: var(--accent-pink);
-            transition: transform 0.3s;
+        .appreciate-img-crop {
+            width: 100%;
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 8px;
         }
 
-        .appreciate-card:hover .appreciate-icon {
-            transform: scale(1.2) rotate(10deg);
+        .appreciate-img-crop img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .appreciate-card:hover .appreciate-img-crop img {
+            transform: scale(1.05);
         }
 
         .appreciate-title {
             font-family: var(--font-serif);
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: 600;
-            color: var(--text-main);
+            color: var(--accent-pink);
+            margin-bottom: 2px;
         }
 
         /* Back Card visual */
         .appreciate-back {
-            background: linear-gradient(135deg, rgba(185, 147, 255, 0.1), rgba(255, 126, 185, 0.05));
-            border-color: rgba(255, 126, 185, 0.2);
+            background: linear-gradient(135deg, rgba(185, 147, 255, 0.12), rgba(255, 126, 185, 0.08));
+            border-color: rgba(255, 126, 185, 0.3);
             color: var(--text-main);
             transform: rotateY(180deg);
+            justify-content: center;
+            gap: 10px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
 
         .appreciate-back-title {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 1.05rem;
+            font-family: var(--font-serif);
             color: var(--accent-peach);
-            margin-bottom: 8px;
             font-weight: 600;
+            margin-bottom: 4px;
         }
 
         .appreciate-desc {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
             line-height: 1.5;
+            margin: 0;
+        }
+
+        .zoom-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-main);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            margin-top: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .zoom-btn:hover {
+            background: var(--accent-pink);
+            color: #fff;
+            transform: scale(1.05);
         }
 
         /* ==========================================
@@ -1683,63 +1718,133 @@
            ========================================== */ -->
         <section id="appreciate">
             <div class="section-header reveal">
-                <span class="section-tag">Appreciation</span>
-                <h2 class="section-title">Things I appreciate about you...</h2>
+                <span class="section-tag">Letters & Whispers</span>
+                <h2 class="section-title">Things I Appreciate & Feel For You...</h2>
             </div>
             
             <div class="appreciate-grid reveal">
                 <!-- Card 1 -->
                 <div class="appreciate-card" onclick="toggleFlip(this)">
+                    <!-- Hidden elements for Lightbox compatibility -->
+                    <img class="polaroid-img" src="images/well_always_forever.jpg" style="display: none;" alt="The Idea of Us">
+                    <span class="polaroid-caption" style="display: none;">I love the idea of us... Always & Forever 💖</span>
+
                     <div class="appreciate-inner">
                         <div class="appreciate-front">
-                            <span class="appreciate-icon">✨</span>
-                            <span class="appreciate-title">Your Presence</span>
+                            <div class="appreciate-img-crop">
+                                <img src="images/well_always_forever.jpg" alt="The Idea of Us" loading="lazy">
+                            </div>
+                            <span class="appreciate-title">The Idea of Us</span>
                         </div>
                         <div class="appreciate-back">
-                            <span class="appreciate-back-title">Always Bright</span>
-                            <p class="appreciate-desc">The way you make ordinary places feel warm and inviting simply by stepping into them. You lift the room's energy effortlessly.</p>
+                            <span class="appreciate-back-title">Always & Forever</span>
+                            <p class="appreciate-desc">I love the idea of seeing your unfiltered face first thing in the morning... enjoying evenings, trips, and irritating you for the rest of my life. I love the idea of having you.</p>
+                            <button class="zoom-btn" onclick="openAppreciateLightbox(this, event)">Zoom Image 🔍</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
                 <div class="appreciate-card" onclick="toggleFlip(this)">
+                    <!-- Hidden elements for Lightbox compatibility -->
+                    <img class="polaroid-img" src="images/disappearing_anger.jpg" style="display: none;" alt="Peace With You">
+                    <span class="polaroid-caption" style="display: none;">Peace With You... 🕊️</span>
+
                     <div class="appreciate-inner">
                         <div class="appreciate-front">
-                            <span class="appreciate-icon">💡</span>
-                            <span class="appreciate-title">Your Wisdom</span>
+                            <div class="appreciate-img-crop">
+                                <img src="images/disappearing_anger.jpg" alt="Peace With You" loading="lazy">
+                            </div>
+                            <span class="appreciate-title">Peace With You</span>
                         </div>
                         <div class="appreciate-back">
-                            <span class="appreciate-back-title">Thoughtful Mind</span>
-                            <p class="appreciate-desc">How you listen so closely and give advice that comes from a place of genuine care. You see details most people miss.</p>
+                            <span class="appreciate-back-title">Disappearing Anger</span>
+                            <p class="appreciate-desc">I got angry enough to push people out of my life, but with you, it just disappears. You are my calm and the reason I find love in my life.</p>
+                            <button class="zoom-btn" onclick="openAppreciateLightbox(this, event)">Zoom Image 🔍</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
                 <div class="appreciate-card" onclick="toggleFlip(this)">
+                    <!-- Hidden elements for Lightbox compatibility -->
+                    <img class="polaroid-img" src="images/worst_days_survivable.jpg" style="display: none;" alt="My Strength">
+                    <span class="polaroid-caption" style="display: none;">My Strength... 💖</span>
+
                     <div class="appreciate-inner">
                         <div class="appreciate-front">
-                            <span class="appreciate-icon">🌱</span>
-                            <span class="appreciate-title">Your Kindness</span>
+                            <div class="appreciate-img-crop">
+                                <img src="images/worst_days_survivable.jpg" alt="My Strength" loading="lazy">
+                            </div>
+                            <span class="appreciate-title">My Strength</span>
                         </div>
                         <div class="appreciate-back">
-                            <span class="appreciate-back-title">Gentle Heart</span>
-                            <p class="appreciate-desc">Your small, quiet acts of thoughtfulness. You show kindness in ways that you probably don't even realize people notice.</p>
+                            <span class="appreciate-back-title">Survivable Days</span>
+                            <p class="appreciate-desc">Even my worst days feel survivable when I remember she exists. You are my light in the dark and the reason I keep smiling.</p>
+                            <button class="zoom-btn" onclick="openAppreciateLightbox(this, event)">Zoom Image 🔍</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 4 -->
                 <div class="appreciate-card" onclick="toggleFlip(this)">
+                    <!-- Hidden elements for Lightbox compatibility -->
+                    <img class="polaroid-img" src="images/loved_you_better.jpg" style="display: none;" alt="Loving You Better">
+                    <span class="polaroid-caption" style="display: none;">Loving You Better... ❤️</span>
+
                     <div class="appreciate-inner">
                         <div class="appreciate-front">
-                            <span class="appreciate-icon">🍃</span>
-                            <span class="appreciate-title">Your Grace</span>
+                            <div class="appreciate-img-crop">
+                                <img src="images/loved_you_better.jpg" alt="Loving You Better" loading="lazy">
+                            </div>
+                            <span class="appreciate-title">Loving You Better</span>
                         </div>
                         <div class="appreciate-back">
-                            <span class="appreciate-back-title">Inner Beauty</span>
-                            <p class="appreciate-desc">How you hold yourself with dignity and composure through life's ups and downs. Your resilience is deeply inspiring.</p>
+                            <span class="appreciate-back-title">Love & Time</span>
+                            <p class="appreciate-desc">If I could have done it all again, I would have loved you better. But I could not have loved you more.</p>
+                            <button class="zoom-btn" onclick="openAppreciateLightbox(this, event)">Zoom Image 🔍</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="appreciate-card" onclick="toggleFlip(this)">
+                    <!-- Hidden elements for Lightbox compatibility -->
+                    <img class="polaroid-img" src="images/jumps_in_without_thinking.jpg" style="display: none;" alt="Jumping In For You">
+                    <span class="polaroid-caption" style="display: none;">Jumping In For You... 🌊❤️</span>
+
+                    <div class="appreciate-inner">
+                        <div class="appreciate-front">
+                            <div class="appreciate-img-crop">
+                                <img src="images/jumps_in_without_thinking.jpg" alt="Jumping In For You" loading="lazy">
+                            </div>
+                            <span class="appreciate-title">Jumping In For You</span>
+                        </div>
+                        <div class="appreciate-back">
+                            <span class="appreciate-back-title">No Second Thoughts</span>
+                            <p class="appreciate-desc">Anyone who can swim may save you. But the one who jumps in without thinking, even when they can't swim—that's the one you should keep. And that's me.</p>
+                            <button class="zoom-btn" onclick="openAppreciateLightbox(this, event)">Zoom Image 🔍</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="appreciate-card" onclick="toggleFlip(this)">
+                    <!-- Hidden elements for Lightbox compatibility -->
+                    <img class="polaroid-img" src="images/hoping_one_day.jpg" style="display: none;" alt="My Entire World">
+                    <span class="polaroid-caption" style="display: none;">Holding my world in my hand... 🌍❤️</span>
+
+                    <div class="appreciate-inner">
+                        <div class="appreciate-front">
+                            <div class="appreciate-img-crop">
+                                <img src="images/hoping_one_day.jpg" alt="My Entire World" loading="lazy">
+                            </div>
+                            <span class="appreciate-title">My Entire World</span>
+                        </div>
+                        <div class="appreciate-back">
+                            <span class="appreciate-back-title">Holding My World</span>
+                            <p class="appreciate-desc">She's not mine, not yet at least, but I still keep hoping she could be. Maybe one day she'll look at me, the way I look at her. Holding my world in my hand.</p>
+                            <button class="zoom-btn" onclick="openAppreciateLightbox(this, event)">Zoom Image 🔍</button>
                         </div>
                     </div>
                 </div>
@@ -2173,6 +2278,12 @@ Happy Birthday, Anupma Deep. ❤️
 
         function closeLightbox() {
             lightbox.classList.remove('active');
+        }
+
+        function openAppreciateLightbox(btn, event) {
+            event.stopPropagation();
+            const card = btn.closest('.appreciate-card');
+            openLightbox(card);
         }
 
         /* Appreciation Cards Click Flip (for mobile compatibility) */
