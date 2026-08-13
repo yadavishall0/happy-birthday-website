@@ -1323,9 +1323,9 @@
 
         <!-- FLOATING DOT NAVIGATION -->
         <nav class="nav-dots" aria-label="Page Sections Navigation">
-            <button class="nav-dot active" data-target="birthday-reveal" data-label="Home"></button>
+            <button class="nav-dot active" data-target="timeline" data-label="Our Story"></button>
+            <button class="nav-dot" data-target="birthday-reveal" data-label="Birthday Reveal"></button>
             <button class="nav-dot" data-target="memories" data-label="Memories"></button>
-            <button class="nav-dot" data-target="timeline" data-label="Our Story"></button>
             <button class="nav-dot" data-target="appreciate" data-label="Appreciation"></button>
             <button class="nav-dot" data-target="personal-letter" data-label="Letter"></button>
             <button class="nav-dot" data-target="surprise-section" data-label="Surprise"></button>
@@ -1339,12 +1339,67 @@
         </audio>
 
         <!-- ==========================================
+           SCREEN 4: OUR STORY / TIMELINE
+           ========================================== -->
+        <section id="timeline">
+            <div class="section-header reveal">
+                <span class="section-tag">Story</span>
+                <h2 class="section-title">Our little story...</h2>
+            </div>
+            
+            <div class="timeline-container">
+                <!-- Milestone 1 -->
+                <div class="timeline-item left reveal">
+                    <div class="timeline-content">
+                        <span class="timeline-date">The Beginning</span>
+                        <h3 class="timeline-item-title">Where we first crossed paths</h3>
+                        <p class="timeline-desc">It started with a simple hello, but little did I know that day would change my path completely. Some meetings are written in the stars.</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 2 -->
+                <div class="timeline-item right reveal">
+                    <div class="timeline-content">
+                        <span class="timeline-date">That One Memorable Day</span>
+                        <h3 class="timeline-item-title">Laughter and inside jokes</h3>
+                        <p class="timeline-desc">The time we stayed up talking for hours about everything and nothing. It was the moment I realized how effortless it is to be around you.</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 3 -->
+                <div class="timeline-item left reveal">
+                    <div class="timeline-content">
+                        <span class="timeline-date">A Moment I'll Never Forget</span>
+                        <h3 class="timeline-item-title">Supporting each other</h3>
+                        <p class="timeline-desc">When things got challenging, having your support meant the absolute world. Your strength and wisdom are things I constantly admire.</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 4 -->
+                <div class="timeline-item right reveal">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Where We Are Today</span>
+                        <h3 class="timeline-item-title">Sincere appreciation</h3>
+                        <p class="timeline-desc">Years or months may pass, but you remain one of the brightest parts of my world. I am incredibly grateful to stand by your side today.</p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#birthday-reveal" class="scroll-down-hint" style="margin-top: 30px;">
+                <span>Keep going</span>
+                <svg viewBox="0 0 24 24">
+                    <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                </svg>
+            </a>
+        </section>
+
+        <!-- ==========================================
            SCREEN 2: BIRTHDAY REVEAL & COUNTDOWN
            ========================================== -->
         <section id="birthday-reveal">
             <div class="reveal-container glass-card reveal">
                 <p class="pre-reveal-text">Today isn't just another day...</p>
-                <h1 class="reveal-title">Because today is YOUR day.<br>Happy Birthday, <span class="name-highlight" id="config-her-name">Aaliyah</span>! 🎂</h1>
+                <h1 class="reveal-title">Because today is YOUR day.<br>Happy Birthday, <span class="name-highlight" id="config-her-name">Anupma Deep</span>! 🎂</h1>
                 
                 <!-- Countdown Module -->
                 <div class="countdown-box" id="countdown-wrapper">
@@ -1473,53 +1528,7 @@
             </div>
         </div>
 
-        <!-- ==========================================
-           SCREEN 4: OUR STORY / TIMELINE
-           ========================================== -->
-        <section id="timeline">
-            <div class="section-header reveal">
-                <span class="section-tag">Story</span>
-                <h2 class="section-title">Our little story...</h2>
-            </div>
-            
-            <div class="timeline-container">
-                <!-- Milestone 1 -->
-                <div class="timeline-item left reveal">
-                    <div class="timeline-content">
-                        <span class="timeline-date">The Beginning</span>
-                        <h3 class="timeline-item-title">Where we first crossed paths</h3>
-                        <p class="timeline-desc">It started with a simple hello, but little did I know that day would change my path completely. Some meetings are written in the stars.</p>
-                    </div>
-                </div>
-
-                <!-- Milestone 2 -->
-                <div class="timeline-item right reveal">
-                    <div class="timeline-content">
-                        <span class="timeline-date">That One Memorable Day</span>
-                        <h3 class="timeline-item-title">Laughter and inside jokes</h3>
-                        <p class="timeline-desc">The time we stayed up talking for hours about everything and nothing. It was the moment I realized how effortless it is to be around you.</p>
-                    </div>
-                </div>
-
-                <!-- Milestone 3 -->
-                <div class="timeline-item left reveal">
-                    <div class="timeline-content">
-                        <span class="timeline-date">A Moment I'll Never Forget</span>
-                        <h3 class="timeline-item-title">Supporting each other</h3>
-                        <p class="timeline-desc">When things got challenging, having your support meant the absolute world. Your strength and wisdom are things I constantly admire.</p>
-                    </div>
-                </div>
-
-                <!-- Milestone 4 -->
-                <div class="timeline-item right reveal">
-                    <div class="timeline-content">
-                        <span class="timeline-date">Where We Are Today</span>
-                        <h3 class="timeline-item-title">Sincere appreciation</h3>
-                        <p class="timeline-desc">Years or months may pass, but you remain one of the brightest parts of my world. I am incredibly grateful to stand by your side today.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- Timeline moved to first section after splash screen -->
 
         <!-- ==========================================
            SCREEN 5: THINGS I APPRECIATE
@@ -1640,13 +1649,13 @@
            ========================================== -->
         <section id="final-wishes">
             <div class="final-box reveal">
-                <h1 class="final-title">Happy Birthday, <span class="name-highlight" id="config-her-name-final">Aaliyah</span>! ❤️</h1>
+                <h1 class="final-title">Happy Birthday, <span class="name-highlight" id="config-her-name-final">Anupma Deep</span>! ❤️</h1>
                 <p class="final-message">May this year ahead bring you more reasons to smile, more unforgettable memories, and everything you have been wishing for.</p>
                 <p class="final-message">Stay exactly the beautiful soul you are.</p>
                 <p class="final-quote">"Some people make life better simply by being in it."</p>
                 
                 <p class="final-message" style="margin-top: 40px; font-weight: 500;">With love,</p>
-                <p class="final-signature" id="config-your-name">Alex</p>
+                <p class="final-signature" id="config-your-name">Vishal Yadav</p>
             </div>
         </section>
 
