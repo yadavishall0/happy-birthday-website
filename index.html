@@ -2252,24 +2252,42 @@ Happy Birthday, Anupma Deep. ❤️
         const lightboxContainer = document.getElementById('lightbox-container');
         const lightboxCaption = document.getElementById('lightbox-caption');
 
-        function openLightbox(polaroid) {
-            const originalImg = polaroid.querySelector('.polaroid-img');
-            const captionText = polaroid.querySelector('.polaroid-caption').innerText;
+        function openLightbox(element) {
+            // Find the image element (either timeline polaroid or appreciation crop img)
+            const originalImg = element.querySelector('.polaroid-img') || element.querySelector('.appreciate-img-crop img');
+            if (!originalImg) return;
+
+            // Find caption text (use textContent to support hidden elements)
+            const captionElement = element.querySelector('.polaroid-caption') || element.querySelector('.appreciate-back-title');
+            const captionText = captionElement ? captionElement.textContent.trim() : '';
 
             lightboxContainer.innerHTML = ''; // Clear container
 
-            if (originalImg.classList.contains('failed-to-load')) {
-                // Image is missing, draw a customized fallback polaroid in lightbox
+            // Check if the image failed to load
+            const isFailed = originalImg.classList.contains('failed-to-load') || 
+                             (originalImg.naturalWidth === 0 && originalImg.complete);
+            
+            if (isFailed) {
                 const pl = document.createElement('div');
                 pl.className = 'lightbox-placeholder';
-                pl.innerHTML = `<svg viewBox="0 0 24 24"><path d="M8.5,13.5L11,16.5L14.5,12L19,18H5L8.5,13.5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0 0 3,5V19A2,2 0 0 0 5,21H19A2,2 0 0 0 21,19M5,5H19V19H5V5Z"/></svg><span>Photo Placeholder #${polaroid.getAttribute('data-index') || ''}</span>`;
+                pl.innerHTML = `<svg viewBox="0 0 24 24"><path d="M8.5,13.5L11,16.5L14.5,12L19,18H5L8.5,13.5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0 0 3,5V19A2,2 0 0 0 5,21H19A2,2 0 0 0 21,19M5,5H19V19H5V5Z"/></svg><span>Photo Placeholder #${element.getAttribute('data-index') || ''}</span>`;
                 lightboxContainer.appendChild(pl);
             } else {
                 // Image is fully loaded, build visual lightbox image
                 const imgElement = document.createElement('img');
                 imgElement.src = originalImg.src;
                 imgElement.className = 'lightbox-img';
-                imgElement.alt = originalImg.alt;
+                imgElement.alt = originalImg.alt || 'Story Image';
+                
+                // Add error fallback just in case the lightbox clone fails to load
+                imgElement.onerror = function() {
+                    lightboxContainer.innerHTML = '';
+                    const pl = document.createElement('div');
+                    pl.className = 'lightbox-placeholder';
+                    pl.innerHTML = `<svg viewBox="0 0 24 24"><path d="M8.5,13.5L11,16.5L14.5,12L19,18H5L8.5,13.5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0 0 3,5V19A2,2 0 0 0 5,21H19A2,2 0 0 0 21,19M5,5H19V19H5V5Z"/></svg><span>Photo not available</span>`;
+                    lightboxContainer.appendChild(pl);
+                };
+
                 lightboxContainer.appendChild(imgElement);
             }
 
