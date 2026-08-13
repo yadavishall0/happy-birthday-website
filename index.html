@@ -2239,6 +2239,7 @@ Happy Birthday, Anupma Deep. ❤️
         function handleImageError(img) {
             // Hide the image element
             img.style.display = 'none';
+            img.classList.add('failed-to-load');
             // Show the fallback placeholder sibling layout
             const fallbackCard = img.nextElementSibling;
             if (fallbackCard) {
@@ -2257,11 +2258,11 @@ Happy Birthday, Anupma Deep. ❤️
 
             lightboxContainer.innerHTML = ''; // Clear container
 
-            if (originalImg.style.display === 'none') {
+            if (originalImg.classList.contains('failed-to-load')) {
                 // Image is missing, draw a customized fallback polaroid in lightbox
                 const pl = document.createElement('div');
                 pl.className = 'lightbox-placeholder';
-                pl.innerHTML = `<svg viewBox="0 0 24 24"><path d="M8.5,13.5L11,16.5L14.5,12L19,18H5L8.5,13.5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0 0 3,5V19A2,2 0 0 0 5,21H19A2,2 0 0 0 21,19M5,5H19V19H5V5Z"/></svg><span>Photo Placeholder #${polaroid.getAttribute('data-index')}</span>`;
+                pl.innerHTML = `<svg viewBox="0 0 24 24"><path d="M8.5,13.5L11,16.5L14.5,12L19,18H5L8.5,13.5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0 0 3,5V19A2,2 0 0 0 5,21H19A2,2 0 0 0 21,19M5,5H19V19H5V5Z"/></svg><span>Photo Placeholder #${polaroid.getAttribute('data-index') || ''}</span>`;
                 lightboxContainer.appendChild(pl);
             } else {
                 // Image is fully loaded, build visual lightbox image
