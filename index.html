@@ -2428,6 +2428,8 @@ Happy Birthday, Sukhi Haddi. ❤️
             const countTo = new Date(year, month, day, 0, 0, 0).getTime();
             const timerContainer = document.getElementById('countdown-wrapper');
             const countdownTitle = document.querySelector('.pre-reveal-text');
+            
+            let intervalId = null;
 
             function updateTime() {
                 const now = new Date().getTime();
@@ -2438,7 +2440,7 @@ Happy Birthday, Sukhi Haddi. ❤️
                     // It is the birthday!
                     if (timerContainer) timerContainer.style.display = 'none';
                     if (countdownTitle) countdownTitle.innerText = "Today is your day! 🎂";
-                    clearInterval(intervalId);
+                    if (intervalId) clearInterval(intervalId);
                     return;
                 }
 
@@ -2454,7 +2456,12 @@ Happy Birthday, Sukhi Haddi. ❤️
             }
 
             updateTime();
-            const intervalId = setInterval(updateTime, 1000);
+            
+            // Only start the interval if the birthday is in the future
+            const now = new Date().getTime();
+            if (countTo - now > 0) {
+                intervalId = setInterval(updateTime, 1000);
+            }
         }
         runCountdown();
 
