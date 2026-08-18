@@ -2419,7 +2419,13 @@ Happy Birthday, Sukhi Haddi. ❤️
 
         /* Countdown logic */
         function runCountdown() {
-            const countTo = new Date(birthdayConfig.birthdayDate + 'T00:00:00').getTime();
+            // Split date components to ensure cross-browser compatibility (e.g. Safari mobile)
+            const parts = birthdayConfig.birthdayDate.split('-');
+            const year = parseInt(parts[0], 10);
+            const month = parseInt(parts[1], 10) - 1; // Months are 0-indexed in JS Date
+            const day = parseInt(parts[2], 10);
+            
+            const countTo = new Date(year, month, day, 0, 0, 0).getTime();
             const timerContainer = document.getElementById('countdown-wrapper');
             const countdownTitle = document.querySelector('.pre-reveal-text');
 
@@ -2427,10 +2433,11 @@ Happy Birthday, Sukhi Haddi. ❤️
                 const now = new Date().getTime();
                 const difference = countTo - now;
 
-                if (difference <= 0) {
+                // Handle invalid dates or finished countdowns safely
+                if (isNaN(difference) || difference <= 0) {
                     // It is the birthday!
-                    timerContainer.style.display = 'none';
-                    countdownTitle.innerText = "Today is your day! 🎂";
+                    if (timerContainer) timerContainer.style.display = 'none';
+                    if (countdownTitle) countdownTitle.innerText = "Today is your day! 🎂";
                     clearInterval(intervalId);
                     return;
                 }
